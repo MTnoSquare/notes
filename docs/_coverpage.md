@@ -5,5 +5,5 @@
 > mynotes.
 > MaZiTao
 
-[GitHub](https://github.com/MTnoSquare/notes.git)
+[GitHub](https://github.com/MTnoSquare/notes)
 [Get Started](#)
