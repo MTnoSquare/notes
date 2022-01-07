@@ -1,4 +1,4 @@
-* [算法](/docs/LeetCode/)
-* [IO](/docs/IO/io模型.md)
-* [Netty](/docs/Netty/Netty模型.md)
-* [Network](/docs/Network/目录.md)
+* [算法](/LeetCode/)
+* [IO](/IO/io模型.md)
+* [Netty](/Netty/Netty模型.md)
+* [Network](/Network/目录.md)
