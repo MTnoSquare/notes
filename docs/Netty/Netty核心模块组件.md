@@ -20,7 +20,7 @@ public ChannelFuture connect(String inetHost, int inetPort)//该方法用于客�
 
 ```
 
-2. Future,ChannelFuture
+## 2. Future,ChannelFuture
    
 注册对IO操作的监听，当操作成功或者失败时会自动触发注册的监听事件
 
@@ -30,28 +30,28 @@ Channel channel()//返回当前正在进行的IO操作通道
 ChannelFuture sync()//等待异步操作执行完毕
 ```
 
-3. Channel
+## 3. Channel
 
 Netty网络通信组件，用于执行异步的网络IO操作，调用立即返回一个`ChannelFuture`实例，不同协议有着不同的`Channel`类型与之对应
 
-4. Selector
+## 4. Selector
 
 Netty基于Selector实现IO多路复用，通过Selector一个线程监听多个连接的Channel事件
 
-5. ChannelHandler
+## 5. ChannelHandler
 
 `ChannelHandler`是一个接口，用来处理IO事件或拦截IO事件，将其转发到ChannelPipeline(业务处理链)中的下一个处理程序
 
 ![](https://community-header-1306990603.cos.ap-guangzhou.myqcloud.com/20220111234505.png)
 
-6. ChannelPipeline
+## 6. ChannelPipeline
 它是一系列Handler的集合，负责处理拦截`inbound`和`outbound`的事件和操作，相当于一条链(责任链模式)
 
 每个`Channel`有且仅有一个`ChannelPipeline`与之对应
 
 ![](https://community-header-1306990603.cos.ap-guangzhou.myqcloud.com/20220111234947.png)
 
-7. ChannelOption
+## 7. ChannelOption
 
 ChannelOption.SO_BACKLOG:对应TCP/IP协议中listen函数的backlog参数，初始化服务器可连接队列大小，服务端将暂时不能处理的客户端连接请求放在队列中等待处理
 
