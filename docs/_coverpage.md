@@ -6,4 +6,4 @@
 > MaZiTao
 
 [GitHub](https://github.com/MTnoSquare/notes)
-[Get Started](#)
+[Get Started](/README.md)
