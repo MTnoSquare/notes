@@ -2,8 +2,7 @@
 
 # MT
 
-> mynotes.
-> MaZiTao
+> 学而不思则罔
 
 [GitHub](https://github.com/MTnoSquare/notes)
 [Get Started](/README.md)
