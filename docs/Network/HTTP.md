@@ -182,6 +182,28 @@ Cookie包括Web Cookie和浏览器Cookie，用来保存状态信息
 * 本质上，session 还是通过 cookie 实现的。浏览器的 cookie 中只保存一个 sessionId，所有其他信息均保存在服务端，由 sessionId 标识
 * Session 失效，其实是服务器设置了失效时间。如果用户长时间不和服务器交互（比如 30 分钟），那么 session 就会被销毁；交互的话，就会刷新 session
 
+### token
+
+**概念**：Token是服务端生成的一串字符串，以作客户端进行请求的一个令牌，当第一次登录后，服务器生成一个Token便将此Token返回给客户端，以后客户端只需带上这个Token前来请求数据即可，无需再次带上用户名和密码。
+
+
+* 每一次请求都需要携带 token，需要把 token 放到 HTTP 的 Header 里
+* token 完全由应用管理，所以它可以避开同源策略
+
+### JWT
+Json Web Token的简称，主要用来进行**认证**和**信息交换**
+
+**格式**
+JWT由三部分组成
+* Header：令牌的类型和使用的前面算法
+* Payload:用户数据的声明
+* Signature:签证信息，由Base64Url编码后得到的header和payload以及secret组成，用于验证消息是否被修改过。
+
+JWT和Session的不同
+* JWT具有加密签名，Session没有
+* JWY无状态，存储在客户端，身份验证可以在本地进行，无需查库
+* 支持跨域
+
 ## HTTP各版本演变以及特性
 
 ### HTTP1.0
