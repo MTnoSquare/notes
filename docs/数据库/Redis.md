@@ -248,7 +248,21 @@ Redis还能对AOF文件进行后台重写,使得AOF文件的体积不至于过�
 
 哨兵模式是一种特殊的模式，首先 Redis 提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行。其原理是哨兵通过发送命令，等待 Redis 服务器响应，从而监控运行的多个 Redis 实例。
 
-### 故障恢复
+### 哨兵的工作模式
+
+1. 每个Sentinel以每秒一次的频率向它所知的Master，Slave以及其他Sentinel发送一个PING命令
+2. 如果最后一次回复PING命令的时间超过down-after-milliseconds所指定的值，该实例会被当前Sentinel标记为主观下线
+3. 此时所有sentinel要以每秒一次的频率确认该Master是否进入主观下线状态
+4. 当有达到配置文件指定的值的数量的Sentinel在指定时间范围确认Master进入主观下线，那么该Master被标记为客观下线。
+5. sentinel节点投票选举一个sentinel节点进行故障处理，在从节点中选取一个主节点，其他从节点复制新主节点数据
+
+
+### 选举master的标准
+
+1. 首先判断slave节点与master节点断开时间的长短，超过指定值(down-after-milliseconds*10)排除该节点
+2. 判断slave节点的slave-priority值，越小优先级越高，为0则永不参与选举
+3. 若slave-priority一样，则判断slave的offset值，越大说明数据越新，优先级越高
+4. 最后判断slave节点的运行id大小，越小优先级越高(该值唯一，不可能相同)
 ## 分布式锁
 为了保证多台服务器在执行某一段代码时保证只有一台服务器执行。
 
