@@ -8,14 +8,16 @@
 >int select (int n, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);  
 
 select 函数监视的文件描述符分3类，分别是`writefds、readfds`和`exceptfds`。调用后select函数会阻塞，直到有描述符就绪（有数据 可读、可写、或者有except），或者超时（timeout指定等待时间，如果立即返回设为null即可），函数返回。当select函数返回后，可以通过遍历fdset，来找到就绪的描述符。
-## 缺点
+   ## 缺点
 1. **性能开销大**  
    1.调用` select `时会陷入内核，这时需要将参数中的 `fd_set` 从用户空间拷贝到内核空间  
    2.内核需要遍历传递进来的所有 `fd_set` 的每一位，不管它们是否就绪
 2. **同时能够监听的文件描述符数量太少**  
    受限于` sizeof(fd_set) `的大小，在编译内核时就确定了且无法更改。一般是 1024，不同的操作系统不相同   
+
 # poll
 `poll` 和 `select` 几乎没有区别。poll 在用户态通过数组方式传递文件描述符，在内核会转为链表方式存储，没有最大数量的限制  
+
 # epoll
 epoll 是对 select 和 poll 的改进，避免了“性能开销大”和“文件描述符数量少”两个缺点。时间复杂度`O(1)`
 
@@ -25,6 +27,7 @@ epoll 是对 select 和 poll 的改进，避免了“性能开销大”和“文
 * 使用队列存储就绪的文件描述符
 * 每个文件描述符只需在添加时传入一次；通过事件更改文件描述符状态
 select、poll 模型都只使用一个函数，而 epoll 模型使用三个函数：`epoll_create、epoll_ctl` 和 `epoll_wait`。
+
 ## 优点  
 `epoll` 是对 `select` 和 `poll` 的改进，避免了“性能开销大”和“文件描述符数量少”两个缺点。
 

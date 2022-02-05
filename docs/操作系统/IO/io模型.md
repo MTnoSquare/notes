@@ -23,6 +23,8 @@
 ## 核心组成
 * **Reactor**:在一个单独线程中运行，负责监听和分发事件，分发给处理程序对IO事件进行处理。（电话接线员）
 * **Handlers**：处理实际事件（接线员通知的人）
+
+
 ## 模式分类
 ### 单Reactor单线程
 ![ ](https://community-header-1306990603.cos.ap-guangzhou.myqcloud.com/IO%2F%E5%8D%95reactor%E5%8D%95%E7%BA%BF%E7%A8%8B.jpg)  
@@ -66,11 +68,14 @@
    
 **使用场景**:  
 Nginx，Memcached，Netty
+
 ## Reactor模式总结  
 1. 响应快
 2. 最大程度避免多线程及同步问题，避免多线程/进程的切换开销
 3. 扩展性好
 4. 复用性好
+
+
 # Proactor
 ![](https://community-header-1306990603.cos.ap-guangzhou.myqcloud.com/IO%2Fproactor.jpg)
 1. Procator Initiator负责创建Procator和Handler，并将Procator和Handler都通过Asynchronous operation processor注册到内核。
