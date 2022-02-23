@@ -50,7 +50,7 @@ binlog的日志格式：
 
 undo log用来回滚行记录到某个版本，保存事务未提交之前的版本数据，供其他并发事务进行快照读，是为实现事务原子性出现的产物。
 
-InnoDB使用undo log实现MVCC
+InnoDB使用undo log实现MVCC和进行事务回滚。
 ## 参考
 * 极客时间，《MySQL 实战 45 讲》
 
