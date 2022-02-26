@@ -8,14 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="icon" href="https://community-header-1306990603.cos.ap-guangzhou.myqcloud.com/src%3Dhttp___pic2.zhimg.com_80_v2-e3731ce474353989c2213c3eea8c8973_720w.jpg_source%3D1940ef5c%26refer%3Dhttp___pic2.zhimg.jfif">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+<!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      search:'auto',
       name: 'MTnotes',
-      repo: 'https://github.com/MTnoSquare/notes',      loadNavbar:true,
+      repo: 'https://github.com/MTnoSquare/notes',      loadNavbar:true, // 加载 _navbar.md
+
       coverpage: true,
       onlyCover: false,
       countable:true,
@@ -28,8 +30,10 @@
             number: "",
             url: "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2022006440",
             id: ""
-        },
-    },
+            },
+          },
+
+
     }
   </script>
   <!-- Docsify v4 -->
@@ -37,5 +41,7 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-beian@latest/dist/beian.min.js"></script>
+    <!-- CDN files for docsify-katex -->
+<script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
 </body>
 </html>
