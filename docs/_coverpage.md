@@ -10,4 +10,4 @@
 
 
 <!-- 自定义背景图 -->
-![](_media/bg.jpg)
+![](_media/as.png)
