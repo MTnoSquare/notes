@@ -44,6 +44,10 @@ Netty基于Selector实现IO多路复用，通过Selector一个线程监听多个
 
 ![](https://community-header-1306990603.cos.ap-guangzhou.myqcloud.com/20220111234505.png)
 
+```java
+
+```
+
 ## 6. ChannelPipeline
 它是一系列Handler的集合，负责处理拦截`inbound`和`outbound`的事件和操作，相当于一条链(责任链模式)
 
@@ -56,3 +60,5 @@ Netty基于Selector实现IO多路复用，通过Selector一个线程监听多个
 ChannelOption.SO_BACKLOG:对应TCP/IP协议中listen函数的backlog参数，初始化服务器可连接队列大小，服务端将暂时不能处理的客户端连接请求放在队列中等待处理
 
 ChannelOption.SO_KEEPALIVE:保持连接活动状态
+
+ChannelOption.SO_REUSEADDR:意味着地址可以复用:->某个进程占用了80端口,然后重启进程,原来的socket1处于TIME-WAIT状态,进程启动后,使用一个新的socket2,要占用80端口,如果这个时候不设置SO_REUSEADDR=true,那么启动的过程中会报端口已被占用的异常。
