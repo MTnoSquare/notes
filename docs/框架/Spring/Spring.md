@@ -171,6 +171,10 @@ Spring 在 TransactionDefinition 接口中规定了 7 种类型的事务传播�
 |     PROPAGATION_NEVER     |                        以非事务方式执行操作，如果当前存在事务，则抛出异常。                        |
 |    PROPAGATION_NESTED     | 如果当前存在事务，则在嵌套事务内执行；如果当前没有事务，则执行与 PROPAGATION_REQUIRED 类似的操作。 |
 
+### 事务的坑
+
+![](https://community-header-1306990603.cos.ap-guangzhou.myqcloud.com/20220905160207.png)
+
 ## Spring 设计模式
 
 工厂模式：Spring通过BeanFactory，ApplicationContext创建bean对象
